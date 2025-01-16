@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <%- include('components/navbar') %>
+    <%- include('components/navbar'), {currentRoute: currentRoute} %>
 
     <article>
         <div class="container center-content">
@@ -61,9 +61,9 @@
                 </div>
             </div>
         </div>
-    
-
     </article>
+
     <%- include('components/footer') %>
+
 </body>
 </html>
