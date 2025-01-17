@@ -9,11 +9,10 @@
     <%- include('components/navbar'), {currentRoute: currentRoute} %>
 
     <article> 
-        <div class="bg-dark text-white p-4">
+        <div class="bg-dark text-white p-4 showUsersTable">
             <div class="container">
                 <h1 class="mb-4">User Management Table</h1>
-                <input type="text" class="form-control mb-3" placeholder="Search user">
-                <table class="table table-dark table-striped table-hover">
+                <table class="table  table-dark table-striped table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -39,12 +38,7 @@
                 </table>
             </div>
         </div>
-        
     </article>
-    <!-- Bootstrap JS and dependencies -->    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <%- include('components/footer') %>
 </body>
