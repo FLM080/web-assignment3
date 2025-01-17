@@ -19,36 +19,22 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Surname</th>
-                            <th>User Gender</th>
-                            <th>User Admin Privilege</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <% users.forEach(user => { %>
-                                    <%= user.id %>
-                                <% }) %>
-                            </td>
-                            <td>
-                                <% users.forEach(user => { %>
-                                    <li><%= user.name %></li>
-                                <% }) %>
-                            </td>
-                            <td>
-                                <% users.forEach(user => { %>
-                                    <li><%= user.surname %></li>
-                                <% }) %>
-                            </td>
-                            <td>None</td>
-                            <td>Yes</td>
-                            <td><button class="btn btn-info btn-sm">VIEW</button></td>
-                            <td><button class="btn btn-warning btn-sm">EDIT</button></td>
-                            <td><button class="btn btn-danger btn-sm">DELETE</button></td>
-                        </tr>
+                        <% users.forEach(user => { %>
+                            <tr>
+                                <td><%= user.id %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.surname %></td>
+                                <td><button class="btn btn-info btn-sm">VIEW</button></td>
+                                <td><button class="btn btn-warning btn-sm">EDIT</button></td>
+                                <td><button class="btn btn-danger btn-sm">DELETE</button></td>
+                            </tr>
+                        <% }) %>
                     </tbody>
                 </table>
             </div>
