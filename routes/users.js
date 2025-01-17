@@ -8,4 +8,13 @@ router.get('/users', (req, res) => {
     res.render('showUsers', { currentRoute, users });
 });
 
-module.exports = router;
+router.get('/viewUsers/:id', (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+    res.render('viewUser',{currentRoute: '', userId});
+});
+
+
+module.exports = {
+    router
+}
