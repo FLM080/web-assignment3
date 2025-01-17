@@ -14,6 +14,10 @@ router.get('/viewUsers/:id', (req, res) => {
     res.render('viewUser', {currentRoute, userId});
 });
 
+router.get('/createUser', (req, res) => {
+    res.render('createUser', {currentRoute: '/createUser'});
+});
+
 
 module.exports = router;
 
