@@ -11,7 +11,7 @@ router.get('/users', (req, res) => {
 router.get('/viewUsers/:id', (req, res) => {
     const userId = req.params.id;
     console.log(userId);
-    res.render('viewUser',{currentRoute: '', userId});
+    res.render('viewUser', {currentRoute, userId});
 });
 
 
