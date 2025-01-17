@@ -51,3 +51,43 @@ img {
 .socials a:hover {
     color: #fff;
 }
+
+/* VIEW button */
+.viewbutton {
+    background-color: #17a2b8; /* Bootstrap info color */
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .viewbutton:hover {
+    background-color: #138496;
+    transform: scale(1.05);
+  }
+  
+  /* EDIT button */
+  .editbutton {
+    background-color: #ffc107; /* Bootstrap warning color */
+    border: none;
+    color: #212529;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .editbutton:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+  }
+  
+  /* DELETE button */
+  .deletebutton {
+    background-color: #dc3545; /* Bootstrap danger color */
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .deletebutton:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+  }
+  
