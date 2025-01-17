@@ -4,8 +4,6 @@
     <%- include('components/header') %>
 </head>
 <body>
-    
-
     <%- include('components/navbar'), {currentRoute: currentRoute} %>
 
     <article> 
@@ -33,7 +31,7 @@
                             <td>admin@admin.com</td>
                             <td>None</td>
                             <td>Yes</td>
-                            <td><button class="btn btn-info btn-sm">VIEW</button></td>
+                            <td><a href="/viewUsers/1"><button class="btn btn-info btn-sm">VIEW</button></a></td>
                             <td><button class="btn btn-warning btn-sm">EDIT</button></td>
                             <td><button class="btn btn-danger btn-sm">DELETE</button></td>
                         </tr>

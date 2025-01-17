@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('components/header') %>
+    </head>
+    <body>
+        <%- include('components/navbar'), {currentRoute: currentRoute} %>
+        <article>
+            <h1>Welcome this is your ID: <%= userId %></h1>
+        </article>
+        <%- include('components/footer') %>
+    </body>
+</html>
