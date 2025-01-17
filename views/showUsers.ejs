@@ -28,9 +28,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Admin</td>
-                            <td>admin@admin.com</td>
+                            <td>
+                                <% users.forEach(user => { %>
+                                    <%= user.id %>
+                                <% }) %>
+                            </td>
+                            <td>
+                                <% users.forEach(user => { %>
+                                    <li><%= user.name %></li>
+                                <% }) %>
+                            </td>
+                            <td>
+                                <% users.forEach(user => { %>
+                                    <li><%= user.surname %></li>
+                                <% }) %>
+                            </td>
                             <td>None</td>
                             <td>Yes</td>
                             <td><button class="btn btn-info btn-sm">VIEW</button></td>

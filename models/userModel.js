@@ -25,3 +25,12 @@ const users = [
     { id: 24, name: "Xavier", surname: "Harris" },
     { id: 25, name: "Yasmine", surname: "Clark" }
   ];
+
+  function getUsers(){
+    return users;
+  }
+
+
+  module.exports = {
+    getUsers
+  }
