@@ -3,15 +3,16 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const currentRoute = '/users';
 
+
 router.get('/users', (req, res) => {
     let users = userController.getUsers();
     res.render('showUsers', { currentRoute, users });
 });
 
 router.get('/viewUsers/:id', (req, res) => {
-    const userId = req.params.id;
-    console.log(userId);
-    res.render('viewUser', {currentRoute, userId});
+    const user = userController.getUserById(req.params.id)
+    console.log(user);
+    res.render('viewUser', {currentRoute, user});
 });
 
 router.get('/createUser', (req, res) => {

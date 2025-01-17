@@ -6,7 +6,20 @@
     <body>
         <%- include('components/navbar'), {currentRoute: currentRoute} %>
         <article>
-            <h1>Welcome this is your ID: <%= userId %></h1>
+            <div class="container d-flex justify-content-center align-items-center vh-100">
+                <div class="card bg-dark text-white shadow" style="max-width: 400px;">
+                    <div class="card-header text-center">
+                        <h2>User Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2"><strong class="active">ID:</strong> <%= user.id %></p>
+                        <p class="mb-2"><strong class="active">Name:</strong> <%= user.name %></p>
+                        <p class="mb-2"><strong class="active">Surname:</strong> <%= user.surname %></p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/users" class="bold btn btn-warning btn-sm">Back to Users</a>
+                    </div>
+                </div>
         </article>
         <%- include('components/footer') %>
     </body>
