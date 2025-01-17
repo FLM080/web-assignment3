@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const userController = require('../controllers/userController');
+const { route } = require('.');
+
+router.get('/', userController.getUsers);
 
 router.get('/users', (req, res) => {
-    res.render('showUsers', { currentRoute: '/users'});
+    let users = userController.getUsers();
+    res.render('showUsers', { currentRoute: '/users', users});
 });
 
 router.get('/viewUsers/:id', (req, res) => {

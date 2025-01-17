@@ -17,24 +17,23 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Surname</th>
-                            <th>User Gender</th>
-                            <th>User Admin Privilege</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Admin</td>
-                            <td>admin@admin.com</td>
-                            <td>None</td>
-                            <td>Yes</td>
-                            <td><a href="/viewUsers/1"><button class="btn btn-info btn-sm">VIEW</button></a></td>
-                            <td><button class="btn btn-warning btn-sm">EDIT</button></td>
-                            <td><button class="btn btn-danger btn-sm">DELETE</button></td>
-                        </tr>
+                        <!-- /viewUsers/1 -->
+                        <% users.forEach(user => { %>
+                            <tr>
+                                <td><%= user.id %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.surname %></td>
+                                <td><a href="/viewUsers/<%= user.id %>" class="btn btn-sm btn-info">VIEW</a></td>
+                                <td><button class="btn btn-sm editbutton">EDIT</button></td>
+                                <td><button class="btn btn-sm deletebutton">DELETE</button></td>
+                            </tr>
+                        <% }) %>    
                     </tbody>
                 </table>
             </div>
