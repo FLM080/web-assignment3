@@ -96,7 +96,7 @@ img {
 }
 
 .adduser {
-    
+
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ img {
     width: 100%;
     padding: 12px;
     font-size: 14px;
-    border: 1px solid #fb5b21;
+    border: 1px solid;
     border-radius: 5px;
     margin-bottom: 15px;
     box-sizing: border-box;
@@ -130,7 +130,7 @@ img {
 }
 
 .adduser input[type="text"]:focus {
-    border-color: #3a3a3a;
+    border-color: #fb5b21;
     outline: none;
 }
 
