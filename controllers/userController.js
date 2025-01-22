@@ -29,9 +29,32 @@ function deleteUser(req, res){
     res.redirect('/users');
 }
 
+function updateUser(req, res, next) {
+    // 1: update user in the model
+    let responseFromModel = userModel.updateUser(req.body);
+    console.log('responseFrom.. works')
+    // 2: if we dont find a user return an error message
+    if(responseFromModel === false){
+        res.send('User not found');
+    }
+    // 3: if the user was updated, redirect to their page
+    else{
+        res.redirect('/viewUsers/' + responseFromModel.id);
+    }
+}
+
+function editUser(req, res, next) {
+    // 1: get the user
+    let user = userModel.getUser(req.params.id);
+    // 2: render the edit form
+    res.render('editUser', { user });
+}
+
 module.exports = {
     getUsers,
     getUserById,
     createUser,
-    deleteUser
+    deleteUser,
+    editUser,
+    updateUser
 }

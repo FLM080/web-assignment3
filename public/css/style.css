@@ -134,6 +134,19 @@ img {
     display: block;
     width: 100%;
     padding: 12px;
+    background-color:  #fb5b219c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.accept_button {
+    display: block;
+    width: 100%;
+    padding: 12px;
     background-color:  #fb5b21;
     color: white;
     border: none;
@@ -142,6 +155,7 @@ img {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 
 .buttons:hover {
     background-color: #ff7c4d;

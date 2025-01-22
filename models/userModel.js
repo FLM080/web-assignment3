@@ -41,8 +41,24 @@ const users = [
     }
   }
 
+  function updateUser(data){
+    let index = users.findIndex( user => user.id === parseInt(data.id));
+    // for submission -> use req.params.id instead of data.id
+    if (index < 0){
+        return false;
+    } else{
+        // update the user in the array
+        users[index].name = data.name;
+        users[index].surname = data.surname;
+        // return updated user
+        return users[index];
+    }
+}
+
+
   module.exports = {
     getUsers,
     createUser,
-    deleteUser
+    deleteUser,
+    updateUser
   }
