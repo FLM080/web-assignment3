@@ -23,6 +23,9 @@ router.route('/createUser')
         res.redirect('/users');
     });
 
+router.get('/deleteUser/:id', (req, res) => {
+    userController.deleteUser(req, res);
+});
 
 
 
