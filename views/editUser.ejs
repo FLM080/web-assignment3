@@ -9,18 +9,29 @@
             <div class="container d-flex justify-content-center align-items-center vh-100">
                 <div class="card bg-dark text-white shadow" style="max-width: 400px;">
                     <div class="card-header text-center">
-                        <h2>User Details</h2>
+                        <h2>Edit User</h2>
                     </div>
                     <div class="card-body">
-                        <p class="mb-2"><strong class="active">ID:</strong> <%= user.id %></p>
-                        <p class="mb-2"><strong class="active">Name:</strong> <%= user.name %></p>
-                        <p class="mb-2"><strong class="active">Surname:</strong> <%= user.surname %></p>
+                        <p class="mb-2"><strong>ID:</strong> <%= user.id %></p>
+                        <form action="/editUser/<%= user.id %>" method="post">
+                            <div class="mb-3">
+                                <label for="name"><strong>Name:</strong></label>
+                                <input type="text" id="name" name="name" class="form-control" value="<%= user.name %>" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="surname"><strong>Surname:</strong></label>
+                                <input type="text" id="surname" name="surname" class="form-control" value="<%= user.surname %>" required />
+                            </div>
+                            <input type="submit" value="accept" class="btn accept_button" />
+                        </form>
                     </div>
                     <div class="card-footer text-center">
                         <a href="/users" class="bold btn btn-sm buttons">Back to Users</a>
                     </div>
                 </div>
+            </div>
         </article>
         <%- include('components/footer') %>
     </body>
 </html>
+  

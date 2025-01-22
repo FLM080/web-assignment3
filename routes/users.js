@@ -14,6 +14,17 @@ router.get('/viewUser/:id', (req, res) => {
     res.render('viewUser', {currentRoute, user});
 });
 
+router.route('/editUser/:id')
+    .get((req, res) => {
+        const user = userController.getUserById(req.params.id)
+        res.render('editUser', {currentRoute, user});
+    })
+    .post((req, res) => {
+        userController.editUser(req,res)
+        res.render('viewUser', {currentRoute, user});
+    });
+
+
 router.route('/createUser')
     .get((req, res) => {
         res.render('createUser', {currentRoute});

@@ -28,7 +28,7 @@
                                         <td><%= user.name %></td>
                                         <td><%= user.surname %></td>
                                         <td><a href="/viewUser/<%= user.id %>" class="btn btn-sm btn-info">VIEW</a></td>
-                                        <td><button class="btn btn-sm editbutton">EDIT</button></td>
+                                        <td><a href="/editUser/<%= user.id %>" class="btn btn-sm editbutton">EDIT</a></td>
                                         <td><a href="/deleteUser/<%= user.id %>"><button class="btn btn-sm deletebutton">DELETE</button></a></td>
                                     </tr>
                                 <% }) %>
