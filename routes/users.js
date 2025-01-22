@@ -20,7 +20,8 @@ router.route('/editUser/:id')
         res.render('editUser', {currentRoute, user});
     })
     .post((req, res) => {
-        userController.editUser(req,res)
+        const user = userController.getUserById(req.params.id)
+        userController.updateUser(req,res);
         res.render('viewUser', {currentRoute, user});
     });
 

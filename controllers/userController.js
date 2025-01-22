@@ -26,15 +26,14 @@ function deleteUser(req, res){
 
 function updateUser(req, res, next) {
     // 1: update user in the model
-    let responseFromModel = userModel.updateUser(req.body);
-    console.log('responseFrom.. works')
+    let responseFromModel = userModel.updateUser(req);
     // 2: if we dont find a user return an error message
     if(responseFromModel === false){
         res.send('User not found');
     }
     // 3: if the user was updated, redirect to their page
     else{
-        res.redirect('/viewUsers/' + responseFromModel.id);
+        res.redirect('/viewUser/' + responseFromModel.id);
     }
 }
 
