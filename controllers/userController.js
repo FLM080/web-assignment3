@@ -19,8 +19,19 @@ function createUser(req, res){
     userModel.createUser(newUser);
 }
 
+function deleteUser(req, res){
+    const id = req.params.id;
+    const users = userModel.getUsers();
+    const user = users.find(user => user.id === parseInt(id));
+    if(user){
+        userModel.deleteUser(id);
+    }
+    res.redirect('/users');
+}
+
 module.exports = {
     getUsers,
     getUserById,
-    createUser
+    createUser,
+    deleteUser
 }

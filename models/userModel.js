@@ -34,8 +34,15 @@ const users = [
     users.push(user);
   }
 
+  function deleteUser(id){
+    const index = users.findIndex(user => user.id === parseInt(id));
+    if(index > -1){
+      users.splice(index, 1);
+    }
+  }
 
   module.exports = {
     getUsers,
-    createUser
+    createUser,
+    deleteUser
   }
