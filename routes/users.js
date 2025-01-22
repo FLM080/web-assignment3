@@ -9,15 +9,21 @@ router.get('/users', (req, res) => {
     res.render('showUsers', { currentRoute, users });
 });
 
-router.get('/viewUsers/:id', (req, res) => {
+router.get('/viewUser/:id', (req, res) => {
     const user = userController.getUserById(req.params.id)
-    console.log(user);
     res.render('viewUser', {currentRoute, user});
 });
 
-router.get('/createUser', (req, res) => {
-    res.render('createUser', {currentRoute: '/createUser'});
-});
+router.route('/createUser')
+    .get((req, res) => {
+        res.render('createUser', {currentRoute});
+    })
+    .post((req, res) => {
+        userController.createUser(req, res);
+        res.redirect('/users');
+    });
+
+
 
 
 module.exports = router;

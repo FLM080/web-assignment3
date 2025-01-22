@@ -6,12 +6,12 @@ const port = 3000;
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
 app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 

@@ -30,7 +30,12 @@ const users = [
     return users;
   }
 
+  function createUser(user){
+    users.push(user);
+  }
+
 
   module.exports = {
-    getUsers
+    getUsers,
+    createUser
   }
