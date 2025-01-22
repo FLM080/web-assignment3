@@ -11,12 +11,7 @@ function getUserById(id) {
 };
 
 function createUser(req, res){
-    const newUser = {
-        id: userModel.getUsers().length + 1,
-        name: req.body.name,
-        surname: req.body.surname
-    }
-    userModel.createUser(newUser);
+    userModel.createUser(req, res);
 }
 
 function deleteUser(req, res){
