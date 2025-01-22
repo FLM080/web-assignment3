@@ -11,6 +11,7 @@
  The first page is the index page.
 
  If you click on the show users link in the navbar, it will take you to the list of users. 
+ ![alt text](image.png)
 The users list has the list of users and three buttons:
 buttons:
 1. view: 
