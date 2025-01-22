@@ -30,8 +30,23 @@ const users = [
     return users;
   }
 
-  function createUser(user){
-    users.push(user);
+  function getMaxId(){
+    let maxId = 0;
+    for (let i = 0; i < users.length; i++){
+        if (users[i].id > maxId){
+            maxId = users[i].id;
+        }
+    }
+    return maxId;
+  }
+
+  function createUser(req, res){
+    const newUser = {
+      id: getMaxId() + 1,
+      name: req.body.name,
+      surname: req.body.surname
+  }
+    users.push(newUser);
   }
 
   function deleteUser(id){
@@ -60,5 +75,6 @@ const users = [
     getUsers,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    getMaxId
   }
