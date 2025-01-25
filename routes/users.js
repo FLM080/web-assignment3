@@ -11,7 +11,11 @@ router.get('/users', (req, res) => {
 
 router.get('/viewUser/:id', (req, res) => {
     const user = userController.getUserById(req.params.id)
-    res.render('viewUser', {currentRoute, user});
+    if (!user) {
+        res.status(404).send('User not found');
+    }else{
+        res.render('viewUser', {currentRoute, user});
+    }
 });
 
 router.route('/editUser/:id')

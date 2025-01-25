@@ -26,6 +26,13 @@ const users = [
     { id: 25, name: "Yasmine", surname: "Clark" }
   ];
 
+// get the maximum ID from the users array so it can be used to generate the next ID even when users a deleted
+let maxId = Math.max(...users.map(user => user.id));
+
+function getNextId() {
+    return ++maxId;
+}
+
   function getUsers(){
     return users;
   }
@@ -34,19 +41,10 @@ const users = [
     return users.find(user => user.id === parseInt(id));
 }
 
-  function getMaxId(){
-    let maxId = 0;
-    for (let i = 0; i < users.length; i++){
-        if (users[i].id > maxId){
-            maxId = users[i].id;
-        }
-    }
-    return maxId;
-  }
 
   function createUser(req, res){
     const newUser = {
-      id: getMaxId() + 1,
+      id: getNextId(),
       name: req.body.name,
       surname: req.body.surname
   }
@@ -55,9 +53,7 @@ const users = [
 
   function deleteUser(id){
     const index = users.findIndex(user => user.id === parseInt(id));
-    if(index > -1){
-      users.splice(index, 1);
-    }
+    users.splice(index, 1);
   }
 
   function updateUser(req, res){
@@ -76,6 +72,6 @@ const users = [
     createUser,
     deleteUser,
     updateUser,
-    getMaxId,
+    getNextId,
     getUser
   }
