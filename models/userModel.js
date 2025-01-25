@@ -26,7 +26,7 @@ const users = [
     { id: 25, name: "Yasmine", surname: "Clark" }
   ];
 
-// get the maximum ID from the users array so it can be used to generate the next ID even when users a deleted
+// get the maximum ID from the users array so it can be used to generate the next ID even when users are deleted
 let maxId = Math.max(...users.map(user => user.id));
 
 function getNextId() {
