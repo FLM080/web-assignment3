@@ -4,11 +4,12 @@ function getUsers(){
     let users = userModel.getUsers();
     return users
 }
+
 function getUserById(id) {
     let users = userModel.getUsers();
     let user = users.find(user => user.id === parseInt(id));
     return user;
-};
+}
 
 function createUser(req, res){
     userModel.createUser(req, res);
@@ -20,35 +21,20 @@ function deleteUser(req, res){
     const user = users.find(user => user.id === parseInt(id));
     if(user){
         userModel.deleteUser(id);
-    }
-    res.redirect('/users');
-}
-
-function updateUser(req, res, next) {
-    // 1: update user in the model
-    let responseFromModel = userModel.updateUser(req);
-    // 2: if we dont find a user return an error message
-    if(responseFromModel === false){
-        res.send('User not found');
-    }
-    // 3: if the user was updated, redirect to their page
-    else{
-        res.redirect('/viewUser/' + responseFromModel.id);
+    }else{
+        res.status(404).send('User not found');
     }
 }
 
-function editUser(req, res, next) {
-    // 1: get the user
-    let user = userModel.getUser(req.params.id);
-    // 2: render the edit form
-    res.render('editUser', { user });
+function updateUser(req, res){
+    userModel.updateUser(req);
 }
+
 
 module.exports = {
     getUsers,
     getUserById,
     createUser,
     deleteUser,
-    editUser,
     updateUser
 }

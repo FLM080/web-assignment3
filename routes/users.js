@@ -17,7 +17,11 @@ router.get('/viewUser/:id', (req, res) => {
 router.route('/editUser/:id')
     .get((req, res) => {
         const user = userController.getUserById(req.params.id)
+        if (!user) {
+            res.status(404).send('User not found');
+        }else{
         res.render('editUser', {currentRoute, user});
+        }
     })
     .post((req, res) => {
         const user = userController.getUserById(req.params.id)
@@ -25,10 +29,9 @@ router.route('/editUser/:id')
         res.render('viewUser', {currentRoute, user});
     });
 
-
 router.route('/createUser')
     .get((req, res) => {
-        res.render('createUser', {currentRoute});
+        res.render('createUser', {currentRoute: '/createUser'});
     })
     .post((req, res) => {
         userController.createUser(req, res);
@@ -37,6 +40,7 @@ router.route('/createUser')
 
 router.get('/deleteUser/:id', (req, res) => {
     userController.deleteUser(req, res);
+    res.redirect('/users');
 });
 
 

@@ -31,12 +31,7 @@ const users = [
   }
 
   function getUser(id) {
-    let user = users.find(user => user.id === parseInt(id));
-    if (typeof user != "undefined"){
-        return user;
-    } else {
-        return "Error 404: User not found"
-    }
+    return users.find(user => user.id === parseInt(id));
 }
 
   function getMaxId(){
@@ -65,19 +60,15 @@ const users = [
     }
   }
 
-  function updateUser(req){
+  function updateUser(req, res){
       let data = req.body
-      let index = users.findIndex( user => user.id === parseInt(req.params.id));
-    if (index < 0){
-        return false;
-    } else{
-        // update the user in the array
-        users[index].name = data.name;
-        users[index].surname = data.surname;
-        // return updated user
-        return users[index];
-    }
-}
+      const index = users.findIndex( user => user.id === parseInt(req.params.id));
+      // update the user in the array
+      users[index].name = data.name;
+      users[index].surname = data.surname;
+      // return updated user
+      return users[index];  
+  }
 
 
   module.exports = {
