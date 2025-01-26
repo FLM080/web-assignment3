@@ -34,30 +34,39 @@ function getNextId() {
 }
 
   function getUsers(){
+    // get users info
     return users;
   }
 
   function getUser(id) {
+    // get user by ID
     return users.find(user => user.id === parseInt(id));
 }
 
 
   function createUser(req, res){
     const newUser = {
+      // new ID for the user
       id: getNextId(),
+      // user info
       name: req.body.name,
       surname: req.body.surname
   }
+  // add to other users
     users.push(newUser);
   }
 
   function deleteUser(id){
+    // get user's index by its ID
     const index = users.findIndex(user => user.id === parseInt(id));
+    // delete user with that id
     users.splice(index, 1);
   }
 
   function updateUser(req, res){
+      // get the user updates info
       let data = req.body
+      // get user's index by its ID
       const index = users.findIndex( user => user.id === parseInt(req.params.id));
       // update the user in the array
       users[index].name = data.name;
