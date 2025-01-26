@@ -1,40 +1,46 @@
-const userModel = require('../models/userModel');
+const userModel = require("../models/userModel");
 
-function getUsers(){
+// Function to get all users
+function getUsers() {
     let users = userModel.getUsers();
-    return users
+    return users;
 }
 
+// Function to get user by ID
 function getUserById(id) {
     let users = userModel.getUsers();
-    let user = users.find(user => user.id === parseInt(id));
+    let user = users.find((user) => user.id === parseInt(id)); // find user by ID
     return user;
 }
 
-function createUser(req, res){
+// Function to create a new user
+function createUser(req, res) {
     userModel.createUser(req, res);
 }
 
-function deleteUser(req, res){
-    const id = req.params.id;
+// Function to delete a user
+function deleteUser(req, res) {
+    const id = req.params.id; // get the ID from the request
     const users = userModel.getUsers();
-    const user = users.find(user => user.id === parseInt(id));
-    if(user){
+    const user = users.find((user) => user.id === parseInt(id)); // find user by ID
+    // check if user exists and delete it
+    if (user) {
         userModel.deleteUser(id);
-    }else{
-        res.status(404).send('User not found');
+        return true;
+    } else {
+        return false;
     }
 }
 
-function updateUser(req, res){
+// Function to update a user
+function updateUser(req, res) {
     userModel.updateUser(req);
 }
-
 
 module.exports = {
     getUsers,
     getUserById,
     createUser,
     deleteUser,
-    updateUser
-}
+    updateUser,
+};
